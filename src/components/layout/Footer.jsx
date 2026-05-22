@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import logoFondart from '../../assets/logos/FONDOS_versionDIGITAL-04.png'
+import logoCineclub from '../../assets/logos/LOGO_CINEMATOGRÁFICO (blanco).png'
 
 export default function Footer() {
   return (
@@ -72,24 +74,21 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-5 text-white/50">
             <a href="#" aria-label="Instagram" className="hover:text-[var(--color-penco-gold)] transition-colors">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <rect x="3" y="3" width="18" height="18" rx="5"/>
                 <circle cx="12" cy="12" r="4"/>
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
               </svg>
             </a>
-            <a href="#" aria-label="YouTube" className="hover:text-[var(--color-penco-gold)] transition-colors">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="2" y="5" width="20" height="14" rx="3"/>
-                <path d="M10 9l5 3-5 3z" fill="currentColor"/>
-              </svg>
-            </a>
-            <a href="#" aria-label="Facebook" className="hover:text-[var(--color-penco-gold)] transition-colors">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M14 9V6.5a1.5 1.5 0 011.5-1.5H17V2h-2.5A4.5 4.5 0 0010 6.5V9H7v3h3v10h4V12h3l1-3h-4z"/>
-              </svg>
-            </a>
           </div>
+        </div>
+        {/* LOGOS INSTITUCIONALES */}
+          <div className="flex flex-wrap items-center gap-8 pb-10 border-b border-white/10">
+            <img src={logoFondart} alt="Fondart" className="h-24 object-contain opacity-100 transition-opacity duration-300" />
+            <img src={logoCineclub} alt="Cineclub Penco" className="h-24 object-contain opacity-100 transition-opacity duration-300" />
+          </div>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-8 border-t border-white/10 text-xs">
+        
         </div>
       </div>
     </footer>
