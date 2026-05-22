@@ -19,7 +19,6 @@ export default function PagePlaceholder({ titulo, descripcion, numero = '01', ch
       </div>
 
       {children && <div className="mt-16">{children}</div>}
-
       <div className="mt-20 p-8 md:p-10 bg-[var(--color-paper)] rounded-2xl border border-[var(--color-penco-blue-200)]/40">
         <div className="flex items-start gap-4">
           <div className="w-10 h-10 rounded-full bg-[var(--color-penco-gold)]/20 flex items-center justify-center flex-shrink-0">

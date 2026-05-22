@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { barrios } from '../data/barrios'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import ProximamenteVideo from '../components/home/ProximamenteVideo'
 
 export default function Home() {
   const containerRef = useScrollReveal()
@@ -70,7 +71,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Footer del hero — barra de metadatos */}
+          {/* Footer del hero — barra de metadatos 
           <div className="mt-16 pt-6 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6 animate-[fade-in_1s_var(--ease-out-quart)_0.9s_both]">
             {[
               { label: 'Barrios', value: '3' },
@@ -83,11 +84,12 @@ export default function Home() {
                 <div className="font-display text-2xl md:text-3xl">{stat.value}</div>
               </div>
             ))}
-          </div>
-        </div>
+          </div>  */}
+        </div> 
 
 
       </section>
+      <ProximamenteVideo />  
 
       {/* ===================================================================
           GRILLA DE BARRIOS — la sección protagonista
@@ -233,7 +235,7 @@ export default function Home() {
 
       {/* ===================================================================
           RECURSOS DEL ARCHIVO — grilla refinada
-          =================================================================== */}
+          =================================================================== 
       <section className="max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-36">
         <div className="grid grid-cols-12 gap-8 mb-16 md:mb-20 reveal">
           <div className="col-span-12 md:col-span-8">
@@ -293,7 +295,7 @@ export default function Home() {
               to={item.to}
               className="reveal group relative bg-white rounded-2xl p-8 lg:p-10 overflow-hidden card"
             >
-              {/* Acento dorado decorativo (top-right) */}
+              {/* Acento dorado decorativo (top-right) *
               <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-[var(--color-penco-gold)]/0 group-hover:bg-[var(--color-penco-gold)]/15 transition-all duration-700 blur-2xl" />
 
               <div className="relative">
@@ -348,7 +350,7 @@ export default function Home() {
               <span>Cartografía</span>
             </div>
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">
-              Explorá los barrios
+              Explora los barrios
               <br />
               <span className="font-display-italic text-[var(--color-penco-gold)]">en el territorio.</span>
             </h2>
