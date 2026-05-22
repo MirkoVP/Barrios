@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-ink)] text-[var(--color-bone)]/80 mt-32">
+    <footer className="bg-[var(--color-ink)] text-[var(--color-bone)]/80 ">
       <div className="max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14 py-20 md:py-28">
         {/* Bloque superior — gran cita / identidad */}
         <div className="grid grid-cols-12 gap-8 mb-20">

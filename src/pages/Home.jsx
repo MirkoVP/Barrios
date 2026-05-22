@@ -207,7 +207,7 @@ export default function Home() {
       {/* ===================================================================
           BLOQUE EDITORIAL — cita destacada
           =================================================================== */}
-      <section className="bg-[var(--color-penco-blue-600)]/85 py-24 md:py-36 reveal">
+      <section className="bg-[var(--color-penco-blue-600)]/80 py-24 md:py-36 reveal">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
           <div className="grid grid-cols-12 gap-8 items-center">
             <div className="col-span-12 md:col-span-2 flex md:flex-col items-center md:items-start gap-3">
