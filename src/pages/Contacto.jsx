@@ -70,7 +70,7 @@ export default function Contacto() {
 
           <div>
             <div className="section-number text-[var(--color-mute)] mb-2">
-              Seguinos en Instagram
+              Síguenos en Instagram
             </div>
             <div className="font-display text-2xl md:text-3xl text-[var(--color-ink)] mb-1 group-hover:text-[var(--color-penco-blue-600)] transition-colors duration-300">
               {instagram}

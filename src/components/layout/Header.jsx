@@ -27,10 +27,8 @@ export default function Header() {
   // Estilos del header según contexto
   const headerBase = 'fixed top-0 inset-x-0 z-50 transition-all duration-500'
   const headerStyle = scrolled
-    ? 'glass text-[var(--color-ink)]'
-    : isHome
-      ? 'bg-transparent text-white'
-      : 'bg-[var(--color-bone)] text-[var(--color-ink)]'
+    ? 'bg-[rgba(104,116,182,0.95)] text-white'
+    : 'bg-[#6874b6] text-white'
 
   return (
     <header

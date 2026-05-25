@@ -33,7 +33,7 @@ export default function Footer() {
             <h4 className="section-number text-white/60 mb-4">Proyecto</h4>
             <ul className="space-y-3 text-sm">
               <li><Link to="/proyecto" className="hover:text-[var(--color-penco-gold)] transition-colors">Sobre el proyecto</Link></li>
-              <li><Link to="/contacto" className="hover:text-[var(--color-penco-gold)] transition-colors">Equipo</Link></li>
+              <li><Link to="/proyecto#equipo" className="hover:text-[var(--color-penco-gold)] transition-colors">Equipo</Link></li>
             </ul>
           </div>
 
@@ -73,7 +73,7 @@ export default function Footer() {
             <span className="text-white/50">arquitecturapenco.cl</span>
           </div>
           <div className="flex items-center gap-5 text-white/50">
-            <a href="#" aria-label="Instagram" className="hover:text-[var(--color-penco-gold)] transition-colors">
+            <a href="https://www.instagram.com/arquitecturapenco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[var(--color-penco-gold)] transition-colors">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <rect x="3" y="3" width="18" height="18" rx="5"/>
                 <circle cx="12" cy="12" r="4"/>

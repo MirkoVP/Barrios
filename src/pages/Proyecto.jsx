@@ -101,7 +101,7 @@ export default function Proyecto() {
           </div>
         </div>
 
-        {/* TARJETAS DE EQUIPO — 5 PERSONAS */}
+         {/*TARJETAS DE EQUIPO — 5 PERSONAS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 mb-10">
           {equipo.map((persona, idx) => (
             <div
@@ -136,23 +136,7 @@ export default function Proyecto() {
           ))}
         </div>
 
-        {/* SECCIÓN 3 — REGISTROS FOTOGRÁFICOS */}
-        <div className="grid grid-cols-12 gap-8 mt-1">
-          <div className="col-span-12 md:col-span-10">
-            <div className="eyebrow text-[var(--color-penco-blue-600)] mb-6">
-              <span className="section-number">/ 03</span>
-              <span>Registros fotográficos</span>
-            </div>
-            <h3 className="font-display text-3xl md:text-4xl leading-[0.95] text-[var(--color-ink)] mb-4">
-              Galeria
-            </h3>
-            <p className="text-base leading-relaxed text-[var(--color-mute)] max-w-2xl mb-10">
-              Registros fotograficos de los barrios industriales de Penco, capturando tanto su arquitectura 
-              como las memorias asociadas a estos lugares.
-            </p>
-          </div>
-        </div>
-
+          {/*
         <div className="bg-white p-8 md:p-10 rounded-3xl border border-[var(--color-penco-blue-200)]/40">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="h-48 rounded-2xl bg-gradient-to-br from-[var(--color-penco-blue)]/10 to-[var(--color-penco-gold)]/5 flex items-center justify-center group cursor-pointer hover:shadow-md transition-all duration-300">
@@ -197,6 +181,7 @@ export default function Proyecto() {
             </div>
           </div>
         </div>
+        */}
       </section>
     </main>
   )
