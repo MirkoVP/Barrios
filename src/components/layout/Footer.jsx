@@ -57,11 +57,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="section-number text-white/60 mb-4">Financiamiento</h4>
+            <h4 className="section-number text-white/60 mb-2">Financiado por</h4>
             <p className="text-sm leading-relaxed">
-              Proyecto financiado por Fondart.
+             Fondo Nacional de Desarrollo Cultural y las Artes (FONDART), Línea de Difusión.
             </p>
-            <p className="text-sm mt-2">Cineclub Penco</p>
+            <h4 className="section-number text-white/60 mb-2 mt-6">Proyecto de</h4>
+            <a href="https://www.instagram.com/cineclubpenco/" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 hover:text-[var(--color-penco-gold)] transition-colors">
+            Centro Cinematográfico de Penco</a>
           </div>
         </div>
 

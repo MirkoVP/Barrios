@@ -20,7 +20,6 @@ export default function Home() {
             animation: 'scale-in 1.6s var(--ease-out-expo) both',
           }}
         />
-        <div className="absolute inset-0 hero-overlay" />
 
         {/* Contenido */}
         <div className="relative z-10 flex-1 flex flex-col max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14 w-full pt-32 md:pt-40 pb-16">
@@ -32,7 +31,7 @@ export default function Home() {
               </div>
             </div>
             <div className="hidden md:block text-right space-y-1 animate-[fade-in_0.8s_var(--ease-out-quart)_0.4s_both]">
-              <div className="section-number text-white/70">UN PROYECTO DE</div>
+              <div className="section-number text-[var(--color-penco-gold)]">UN PROYECTO DE</div>
               <div className="text-sm font-medium">Cineclub Penco</div>
             </div>
           </div>
@@ -48,7 +47,7 @@ export default function Home() {
             </div>
 
             <div className="col-span-12 lg:col-span-4 lg:pb-6 animate-[fade-up_1s_var(--ease-out-expo)_0.6s_both]">
-              <p className="text-base md:text-lg leading-relaxed text-white/85 max-w-md">
+              <p className="text-base md:text-lg leading-relaxed text-white max-w-md">
                 Sitio dedicado al rescate y documentación del patrimonio
                 arquitectónico industrial de Penco. Recorré las poblaciones
                 obreras de <span className="text-[var(--color-penco-gold)]">CRAV</span>,{' '}
@@ -148,8 +147,9 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.2s] group-hover:scale-110"
                 style={{
-                  backgroundImage:
-                    "url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1000&q=80')",
+                  backgroundImage: barrio.imagen
+                    ? `url('${barrio.imagen}')`
+                    : "url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1000&q=80')",
                   transitionTimingFunction: 'var(--ease-out-expo)',
                 }}
               />
@@ -159,7 +159,7 @@ export default function Home() {
               <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[var(--color-penco-gold)]/40 transition-colors duration-500" />
 
               {/* Contenido */}
-              <div className="relative h-full flex flex-col justify-between p-6 lg:p-8 text-white">
+              <div className="relative h-full flex flex-col p-6 lg:p-8 text-white">
                 <div className="flex items-start justify-between">
                   <span className="section-number text-white/70">
                     / {String(idx + 1).padStart(2, '0')}
@@ -174,19 +174,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="font-display text-5xl lg:text-6xl mb-3 tracking-tight">
-                    {barrio.nombre}
-                  </h3>
-                  <p className="text-xs lg:text-sm text-white/70 mb-3 font-mono tracking-wider uppercase">
-                    {barrio.nombreCompleto}
-                  </p>
+                {/* Descripción y tags crecen para llenar el espacio */}
+                <div className="flex-1 flex flex-col justify-end py-5">
                   <p className="text-sm text-white/85 leading-relaxed max-w-xs">
                     {barrio.descripcion}
                   </p>
-
                   {barrio.recintos && barrio.recintos.length > 0 && (
-                    <div className="mt-5 pt-4 border-t border-white/15 flex flex-wrap gap-1.5">
+                    <div className="mt-4 flex flex-wrap gap-1.5">
                       {barrio.recintos.map((r) => (
                         <span
                           key={r.id}
@@ -197,6 +191,16 @@ export default function Home() {
                       ))}
                     </div>
                   )}
+                </div>
+
+                {/* Título siempre al mismo nivel (abajo fijo) */}
+                <div className="pt-4 border-t border-white/15">
+                  <h3 className="font-display text-5xl lg:text-6xl mb-1 tracking-tight">
+                    {barrio.nombre}
+                  </h3>
+                  <p className="text-xs lg:text-sm text-white/70 font-mono tracking-wider uppercase">
+                    {barrio.nombreCompleto}
+                  </p>
                 </div>
               </div>
             </Link>
@@ -218,14 +222,14 @@ export default function Home() {
             </div>
             <div className="col-span-12 md:col-span-10">
               <p className="font-display-italic text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-[var(--color-ink)]">
-                «La arquitectura industrial no es solo edificios — es la huella
-                visible de cómo el trabajo organizó el territorio, la vida
-                cotidiana y las comunidades que nacieron a su alrededor».
+                «La creación de barrios obreros determinó la conformación de paisajes urbanos (...) Barrios complejos donde no 
+                solamente la vivienda estaba contemplada, sino que numerosos otros aspectos como la actividad social, deportiva
+                 o cultural estaban insertos en el diario vivir.».
               </p>
               <div className="mt-8 flex items-center gap-3">
                 <div className="w-12 h-px bg-[var(--color-penco-gold-deep)]" />
                 <div className="text-sm tracking-wider uppercase font-medium text-[var(--color-black)]">
-                  Del proyecto editorial
+                  Luis Darmendrail Salvo (Arquitecto e Investigador)
                 </div>
               </div>
             </div>
@@ -332,12 +336,11 @@ export default function Home() {
           CTA FINAL — visita el mapa
           =================================================================== */}
       <section className="bg-[var(--color-ink)] text-white relative overflow-hidden grain">
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-100">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=2000&q=80')",
+           backgroundImage: "url('/src/assets/CRAV01.png')",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)] via-[var(--color-ink)]/80 to-transparent" />

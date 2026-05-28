@@ -1,9 +1,10 @@
+/*
 import { useState, useRef, useEffect } from 'react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 /* ─────────────────────────────────────────────
    IMÁGENES  –  ajusta las rutas según tu repo
-   ───────────────────────────────────────────── */
+   ───────────────────────────────────────────── 
 
 // Recinto CRAV
 import recintoCrav1   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_1WEB.png'
@@ -31,7 +32,7 @@ import radalesPlano   from '../../assets/CRAV/LOS RADALES/fotos/RADALES_1WEB.png
 
 /* ─────────────────────────────────────────────
    Componente: Carrusel
-   ───────────────────────────────────────────── */
+   ───────────────────────────────────────────── 
 function Carrusel({ fotos, label }) {
   const [idx, setIdx] = useState(0)
 
@@ -41,7 +42,7 @@ function Carrusel({ fotos, label }) {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-[var(--color-paper)] group"
          style={{ boxShadow: 'var(--shadow-card)' }}>
-      {/* Imagen principal */}
+      {/* Imagen principal }
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           key={idx}
@@ -50,7 +51,7 @@ function Carrusel({ fotos, label }) {
           className="w-full h-full object-cover"
           style={{ animation: 'fade-in 0.4s var(--ease-out-quart) both' }}
         />
-        {/* Controles */}
+        {/* Controles }
         <button
           onClick={prev}
           aria-label="Anterior"
@@ -69,12 +70,12 @@ function Carrusel({ fotos, label }) {
             <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        {/* Contador */}
+        {/* Contador }
         <div className="absolute bottom-3 right-4 text-xs font-medium text-white/80 bg-black/40 px-2 py-0.5 rounded-full">
           {idx + 1} / {fotos.length}
         </div>
       </div>
-      {/* Thumbnails */}
+      {/* Thumbnails /}
       <div className="flex gap-2 p-3 overflow-x-auto">
         {fotos.map((f, i) => (
           <button
@@ -93,7 +94,7 @@ function Carrusel({ fotos, label }) {
 
 /* ─────────────────────────────────────────────
    Componente: ImagenConLeyenda
-   ───────────────────────────────────────────── */
+   ───────────────────────────────────────────── /
 function ImagenConLeyenda({ src, alt, leyenda, aspectClass = 'aspect-[4/3]' }) {
   return (
     <figure className="space-y-2">
@@ -110,7 +111,7 @@ function ImagenConLeyenda({ src, alt, leyenda, aspectClass = 'aspect-[4/3]' }) {
 
 /* ─────────────────────────────────────────────
    Componente: EtiquetaMeta  (año / dato / arquitecto)
-   ───────────────────────────────────────────── */
+   ───────────────────────────────────────────── /
 function MetaTag({ label, value }) {
   return (
     <div className="flex flex-col gap-0.5">
@@ -122,14 +123,14 @@ function MetaTag({ label, value }) {
 
 /* ─────────────────────────────────────────────
    Componente: DividerLine
-   ───────────────────────────────────────────── */
+   ───────────────────────────────────────────── /
 function Divider() {
   return <div className="border-t border-[var(--color-ink)]/10 my-20 md:my-28" />
 }
 
 /* ─────────────────────────────────────────────
    Componente: SectionHeader
-   ───────────────────────────────────────────── */
+   ───────────────────────────────────────────── /
 function SectionHeader({ numero, titulo, subtitulo }) {
   return (
     <div className="reveal mb-12 md:mb-16">
@@ -146,7 +147,7 @@ function SectionHeader({ numero, titulo, subtitulo }) {
 
 /* ─────────────────────────────────────────────
    Página principal
-   ───────────────────────────────────────────── */
+   ───────────────────────────────────────────── /
 export default function CRAV() {
   const containerRef = useScrollReveal()
 
@@ -155,7 +156,7 @@ export default function CRAV() {
 
       {/* ══════════════════════════════════════
           HERO
-          ══════════════════════════════════════ */}
+          ══════════════════════════════════════ *}
       <section className="relative min-h-[70vh] flex flex-col justify-end text-white overflow-hidden grain">
         <div
           className="absolute inset-0 bg-cover bg-center scale-105"
@@ -186,12 +187,12 @@ export default function CRAV() {
 
       {/* ══════════════════════════════════════
           CONTENIDO PRINCIPAL
-          ══════════════════════════════════════ */}
+          ══════════════════════════════════════ *}
       <div className="max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14">
 
         {/* ─────────────────────────────────────
             01 · RECINTO CRAV
-            ───────────────────────────────────── */}
+            ───────────────────────────────────── *}
         <section className="pt-24 md:pt-36">
 
           <SectionHeader
@@ -200,16 +201,16 @@ export default function CRAV() {
             titulo={<>Recinto<br /><span className="font-display-italic text-[var(--color-penco-blue-600)]">CRAV</span></>}
           />
 
-          {/* Meta datos */}
+          {/* Meta datos *}
           <div className="reveal flex flex-wrap gap-8 mb-12 pb-8 border-b border-[var(--color-ink)]/10">
             <MetaTag label="ETAPAS" value="1900 · 1927 · 1937 · 1940 · 1941–1942" />
             <MetaTag label="ARQUITECTOS" value="Jorge y Alfredo Velasco Urzúa" />
             <MetaTag label="EDIFICIOS" value="2 principales" />
           </div>
 
-          {/* Texto + Carrusel */}
+          {/* Texto + Carrusel /}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal">
-            {/* Texto */}
+            {/* Texto *}
             <div className="space-y-5 text-[var(--color-mute)] text-base md:text-lg leading-relaxed">
               <p>
                 El llamado «Recinto CRAV» es el resultado de múltiples etapas de
@@ -241,7 +242,7 @@ export default function CRAV() {
               </p>
             </div>
 
-            {/* Carrusel */}
+            {/* Carrusel *}
             <div className="reveal">
               <Carrusel
                 fotos={[recintoCrav1, recintoCrav2, recintoCrav3, recintoCrav4]}
@@ -250,7 +251,7 @@ export default function CRAV() {
             </div>
           </div>
 
-          {/* Maqueta 3D */}
+          {/* Maqueta 3D /}
           <div className="reveal">
             <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
               <span className="section-number">Maqueta 3D</span>
@@ -268,7 +269,7 @@ export default function CRAV() {
 
         {/* ─────────────────────────────────────
             02 · POBLACIÓN DESIDERIO GUZMÁN
-            ───────────────────────────────────── */}
+            ───────────────────────────────────── *}
         <section>
 
           <SectionHeader
@@ -277,7 +278,7 @@ export default function CRAV() {
             titulo={<>Desiderio<br /><span className="font-display-italic text-[var(--color-penco-blue-600)]">Guzmán</span></>}
           />
 
-          {/* Meta datos */}
+          {/* Meta datos *}
           <div className="reveal flex flex-wrap gap-8 mb-12 pb-8 border-b border-[var(--color-ink)]/10">
             <MetaTag label="AÑO" value="1961" />
             <MetaTag label="VIVIENDAS" value="84 (80 pareadas + 4 aisladas)" />
@@ -285,9 +286,9 @@ export default function CRAV() {
             <MetaTag label="ARQUITECTOS" value="Santiago Roi y Ricardo Hempel" />
           </div>
 
-          {/* Texto + Carrusel */}
+          {/* Texto + Carrusel *}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal">
-            {/* Carrusel primero en mobile, segundo en desktop */}
+            {/* Carrusel primero en mobile, segundo en desktop *}
             <div className="order-2 lg:order-1">
               <Carrusel
                 fotos={[desiderio1, desiderio2, desiderio3, desiderio4]}
@@ -295,7 +296,7 @@ export default function CRAV() {
               />
             </div>
 
-            {/* Texto */}
+            {/* Texto *}
             <div className="order-1 lg:order-2 space-y-5 text-[var(--color-mute)] text-base md:text-lg leading-relaxed">
               <p>
                 La población Desiderio Guzmán corresponde a la expansión habitacional
@@ -320,7 +321,7 @@ export default function CRAV() {
             </div>
           </div>
 
-          {/* Maqueta 3D + Plano — side by side */}
+          {/* Maqueta 3D + Plano — side by side /}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
             <div>
               <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
@@ -349,7 +350,7 @@ export default function CRAV() {
 
         {/* ─────────────────────────────────────
             03 · VILLA LOS RADALES
-            ───────────────────────────────────── */}
+            ───────────────────────────────────── *}
         <section className="pb-24 md:pb-36">
 
           <SectionHeader
@@ -358,16 +359,16 @@ export default function CRAV() {
             titulo={<>Los<br /><span className="font-display-italic text-[var(--color-penco-blue-600)]">Radales</span></>}
           />
 
-          {/* Meta datos */}
+          {/* Meta datos *}
           <div className="reveal flex flex-wrap gap-8 mb-12 pb-8 border-b border-[var(--color-ink)]/10">
             <MetaTag label="AÑO" value="1974 (ocupadas en 1976)" />
             <MetaTag label="VIVIENDAS" value="72 casas pareadas de 2 niveles" />
             <MetaTag label="ARQUITECTOS" value="Roberto Goycoolea, Luis Soto y Ramón Jofré" />
           </div>
 
-          {/* Texto + Fotos actuales */}
+          {/* Texto + Fotos actuales *}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal">
-            {/* Texto */}
+            {/* Texto *}
             <div className="space-y-5 text-[var(--color-mute)] text-base md:text-lg leading-relaxed">
               <p>
                 Villa Los Radales, ubicada en un terreno próximo al Recinto CRAV,
@@ -389,7 +390,7 @@ export default function CRAV() {
               </p>
             </div>
 
-            {/* Fotos actuales */}
+            {/* Fotos actuales *}
             <div className="grid grid-cols-2 gap-3">
               {[radales1, radales2, radales3].map((foto, i) => (
                 <div
@@ -403,7 +404,7 @@ export default function CRAV() {
             </div>
           </div>
 
-          {/* Maqueta 3D */}
+          {/* Maqueta 3D *}
           <div className="reveal mb-16">
             <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
               <span className="section-number">Maqueta 3D</span>
@@ -416,7 +417,7 @@ export default function CRAV() {
             />
           </div>
 
-          {/* Fotos de archivo */}
+          {/* Fotos de archivo /}
           <div className="reveal mb-16">
             <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
               <span className="section-number">Fotos de archivo</span>
@@ -433,7 +434,7 @@ export default function CRAV() {
             </div>
           </div>
 
-          {/* Plano */}
+          {/* Plano *}
           <div className="reveal">
             <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
               <span className="section-number">Plano</span>
@@ -449,5 +450,17 @@ export default function CRAV() {
         </section>
       </div>
     </div>
+  )
+}
+*/
+import PagePlaceholder from '../../components/ui/PagePlaceholder'
+
+export default function CRAV() {
+  return (
+    <PagePlaceholder
+      numero="02"
+      titulo="CRAV"
+      descripcion="Compañía Refinería de Azúcar de Viña del Mar. Incluye Recinto CRAV, Población Desiderio Guzmán y Villa Los Radales."
+    />
   )
 }

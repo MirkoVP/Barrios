@@ -6,6 +6,7 @@ export const barrios = [
     nombre: 'CRAV',
     nombreCompleto: 'Compañía Refinería de Azúcar',
     descripcion: 'Conjunto industrial y habitacional ligado a la refinería de azúcar, con tres recintos asociados.',
+    imagen: '/src/assets/CRAV02.png',
     recintos: [
       { id: 'recinto-crav', nombre: 'Recinto CRAV' },
       { id: 'desiderio-guzman', nombre: 'P. Desiderio Guzmán' },
@@ -16,17 +17,21 @@ export const barrios = [
     slug: 'vipla',
     nombre: 'VIPLA',
     nombreCompleto: 'Industria del Vidrio Plano',
-    descripcion: 'Antigua fábrica de vidrio y su barrio obrero asociado.',
-    recintos: [],
+    descripcion: 'Antigua fábrica Nacional de Vidrios Planos y su barrio obrero asociado.',
+    imagen: '/src/assets/VIPLA2.png',
+    recintos: [
+    
+    ],
   },
   {
     slug: 'fanaloza',
     nombre: 'FANALOZA',
     nombreCompleto: 'Fábrica Nacional de Loza',
     descripcion: 'Complejo de cerámica con dos poblaciones obreras asociadas.',
+    imagen: '/src/assets/FONDO-FANALOZA.png',
     recintos: [
-      { id: 'juan-diaz', nombre: 'P. Juan Díaz' },
-      { id: 'facundo-diaz', nombre: 'P. Facundo Díaz' },
+      { id: 'juan-diaz', nombre: 'Población Juan Díaz' },
+      { id: 'facundo-diaz', nombre: 'Población Facundo Díaz' },
     ],
   },
 ]
