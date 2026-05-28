@@ -16,7 +16,7 @@ export const barrios = [
   {
     slug: 'vipla',
     nombre: 'VIPLA',
-    nombreCompleto: 'Industria del Vidrio Plano',
+    nombreCompleto: 'Fábrica Nacional de Vidrios Planos',
     descripcion: 'Antigua fábrica Nacional de Vidrios Planos y su barrio obrero asociado.',
     imagen: '/src/assets/VIPLA2.png',
     recintos: [
