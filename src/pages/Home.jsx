@@ -49,7 +49,7 @@ export default function Home() {
             <div className="col-span-12 lg:col-span-4 lg:pb-6 animate-[fade-up_1s_var(--ease-out-expo)_0.6s_both]">
               <p className="text-base md:text-lg leading-relaxed text-white max-w-md">
                 Sitio dedicado al rescate y documentación del patrimonio
-                arquitectónico industrial de Penco. Recorré las poblaciones
+                arquitectónico industrial de Penco. Recorre las poblaciones
                 obreras de <span className="text-[var(--color-penco-gold)]">CRAV</span>,{' '}
                 <span className="text-[var(--color-penco-gold)]">VIPLA</span> y{' '}
                 <span className="text-[var(--color-penco-gold)]">FANALOZA</span> a
