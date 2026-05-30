@@ -110,34 +110,29 @@ export default function Proyecto() {
                 idx === 3 ? 'lg:col-start-2' : ''
               }`}
             >
-              <div className="mb-4">
-                
-                <h3 className="font-display text-xl text-[var(--color-ink)] mb-1">
+              <div className="flex items-center gap-2">
+                <h3 className="font-display text-xl text-[var(--color-ink)]">
                   {persona.nombre}
                 </h3>
-
-                <p className="text-xs tracking-widest uppercase text-[var(--color-penco-gold-deep)] font-bold">
-                  {persona.rol}
-                </p>
-              </div>
-
-              {persona.link && (
-                <div className="pt-3 border-t border-[var(--color-penco-blue-200)]/30">
+                {persona.link && (
                   <a
                     href={persona.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[var(--color-penco-blue-600)] text-white hover:bg-[var(--color-penco-gold-deep)] transition-all duration-300"
+                    className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--color-penco-blue-600)] text-white hover:bg-[var(--color-penco-gold-deep)] transition-all duration-300 shrink-0"
                     aria-label="Instagram"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                       <circle cx="12" cy="12" r="4"/>
                       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
                     </svg>
                   </a>
-                </div>
-              )}
+                )}
+              </div>
+              <p className="text-xs tracking-widest uppercase text-[var(--color-penco-gold-deep)] font-bold mt-1">
+                {persona.rol}
+              </p>
             </div>
           ))}
         </div>
