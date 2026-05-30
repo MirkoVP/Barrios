@@ -3,6 +3,10 @@ import { barrios } from '../data/barrios'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import ProximamenteVideo from '../components/home/ProximamenteVideo'
 
+// ✅ Imports de imágenes — Vite las procesa y optimiza automáticamente
+import fondoHome from '../assets/fondohome.png'
+import imagenCRAV from '../assets/CRAV01.png'
+
 export default function Home() {
   const containerRef = useScrollReveal()
 
@@ -16,7 +20,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{
-           backgroundImage: "url('/src/assets/fondohome.png')",
+           backgroundImage: `url('${fondoHome}')`,
             animation: 'scale-in 1.6s var(--ease-out-expo) both',
           }}
         />
@@ -340,7 +344,7 @@ export default function Home() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-           backgroundImage: "url('/src/assets/CRAV01.png')",
+           backgroundImage: `url('${imagenCRAV}')`,
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)] via-[var(--color-ink)]/80 to-transparent" />

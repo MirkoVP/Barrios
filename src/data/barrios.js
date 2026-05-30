@@ -1,12 +1,17 @@
 // Datos centralizados de los barrios industriales de Penco
 
+// ✅ Imports de imágenes — Vite las procesa y optimiza automáticamente
+import imgCRAV from '../assets/CRAV02.png'
+import imgVIPLA from '../assets/VIPLA2.png'
+import imgFanaloza from '../assets/FONDO-FANALOZA.png'
+
 export const barrios = [
   {
     slug: 'crav',
     nombre: 'CRAV',
     nombreCompleto: 'Compañía Refinería de Azúcar',
     descripcion: 'Conjunto industrial y habitacional ligado a la refinería de azúcar, con tres recintos asociados.',
-    imagen: '/src/assets/CRAV02.png',
+    imagen: imgCRAV,
     recintos: [
       { id: 'recinto-crav', nombre: 'Recinto CRAV' },
       { id: 'desiderio-guzman', nombre: 'P. Desiderio Guzmán' },
@@ -18,7 +23,7 @@ export const barrios = [
     nombre: 'VIPLA',
     nombreCompleto: 'Fábrica Nacional de Vidrios Planos',
     descripcion: 'Antigua fábrica Nacional de Vidrios Planos y su barrio obrero asociado.',
-    imagen: '/src/assets/VIPLA2.png',
+    imagen: imgVIPLA,
     recintos: [
     
     ],
@@ -28,7 +33,7 @@ export const barrios = [
     nombre: 'FANALOZA',
     nombreCompleto: 'Fábrica Nacional de Loza',
     descripcion: 'Complejo de cerámica con dos poblaciones obreras asociadas.',
-    imagen: '/src/assets/FONDO-FANALOZA.png',
+    imagen: imgFanaloza,
     recintos: [
       { id: 'juan-diaz', nombre: 'Población Juan Díaz' },
       { id: 'facundo-diaz', nombre: 'Población Facundo Díaz' },
