@@ -221,7 +221,7 @@ export default function Home() {
               <svg className="w-12 h-12 text-[var(--color-penco-gold-deep)]" viewBox="0 0 48 48" fill="none">
                 <path d="M14 30c0-6 4-10 10-12v4c-4 1.5-6 4.5-6 8h6v10H14V30zm14 0c0-6 4-10 10-12v4c-4 1.5-6 4.5-6 8h6v10H28V30z" fill="currentColor"/>
               </svg>
-              <div className="section-number text-[var(--color-black)]">/ 02</div>
+            
             </div>
             <div className="col-span-12 md:col-span-10">
               <p className="font-display-italic text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-[var(--color-ink)]">
