@@ -4,7 +4,6 @@ export default function PagePlaceholder({ titulo, descripcion, numero = '01', ch
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-12 md:col-span-8">
           <div className="eyebrow text-[var(--color-penco-blue-600)] mb-6">
-            <span className="section-number">/ {numero}</span>
             <span>Sección</span>
           </div>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-[var(--color-ink)] mb-8">

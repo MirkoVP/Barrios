@@ -135,7 +135,6 @@ function SectionHeader({ numero, titulo, subtitulo }) {
   return (
     <div className="reveal mb-12 md:mb-16">
       <div className="eyebrow text-[var(--color-penco-blue-600)] mb-4">
-        <span className="section-number">{numero}</span>
         <span>{subtitulo}</span>
       </div>
       <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] text-[var(--color-ink)]">
@@ -170,7 +169,6 @@ export default function CRAV() {
         <div className="relative z-10 max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14 w-full pb-16 md:pb-24">
           <div className="animate-[fade-up_1s_var(--ease-out-expo)_0.2s_both]">
             <div className="eyebrow text-[var(--color-penco-gold)] mb-4">
-              <span className="section-number">/ 02</span>
               <span>Barrio industrial</span>
             </div>
             <h1 className="font-display text-[14vw] md:text-[10vw] lg:text-[8rem] leading-[0.9] mb-6">

@@ -102,7 +102,6 @@ export default function Home() {
         <div className="grid grid-cols-12 gap-8 mb-16 md:mb-24 reveal">
           <div className="col-span-12 md:col-span-7">
             <div className="eyebrow text-[var(--color-penco-blue-600)] mb-5">
-              <span className="section-number">/ 01</span>
               <span>Los barrios</span>
             </div>
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-[var(--color-ink)]">
@@ -353,7 +352,7 @@ export default function Home() {
         <div className="relative max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-32 grid grid-cols-12 gap-8 items-center reveal">
           <div className="col-span-12 md:col-span-8">
             <div className="eyebrow text-[var(--color-penco-gold)] mb-6">
-              <span className="section-number">/ 07</span>
+              
               <span>Cartografía</span>
             </div>
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">

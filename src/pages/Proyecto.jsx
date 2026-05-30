@@ -32,7 +32,6 @@ export default function Proyecto() {
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-12 md:col-span-10">
           <div className="eyebrow text-[var(--color-penco-blue-600)] mb-6">
-            <span className="section-number">/ 01</span>
             <span>Sobre el proyecto</span>
           </div>
 
@@ -92,7 +91,6 @@ export default function Proyecto() {
         <div className="grid grid-cols-12 gap-8 mt-10">
           <div className="col-span-12 md:col-span-10">
             <div className="eyebrow text-[var(--color-penco-blue-600)] mb-6">
-              <span className="section-number">/ 02</span>
               <span>Equipo</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl leading-[0.95] text-[var(--color-ink)] mb-1">

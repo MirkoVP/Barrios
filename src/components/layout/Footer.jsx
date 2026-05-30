@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-12 gap-8 mb-20">
           <div className="col-span-12 md:col-span-8">
             <div className="section-number text-[var(--color-penco-gold)] mb-4">
-              ARQUITECTURA DE PENCO · 2024–
+              · ARQUITECTURA DE PENCO ·
             </div>
             <p className="font-display text-3xl md:text-5xl text-white leading-[1.05] max-w-3xl">
               Un archivo vivo del patrimonio industrial pencón
