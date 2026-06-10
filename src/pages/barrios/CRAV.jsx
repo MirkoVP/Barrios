@@ -1,117 +1,329 @@
-/*
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 /* ─────────────────────────────────────────────
    IMÁGENES  –  ajusta las rutas según tu repo
-   ───────────────────────────────────────────── 
+   ───────────────────────────────────────────── */
+
+import fondoCrav   from '../../assets/CRAV/FONDO-CRAV.png'
 
 // Recinto CRAV
 import recintoCrav1   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_1WEB.png'
-import recintoCrav2   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_1WEB.png'
-import recintoCrav3   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_1WEB.png'
-import recintoCrav4   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_1WEB.png'
-import recintoMaqueta from '../../assets/CRAV/RECINTO CRAV/Edificios Isométricos/CRAV1.png'
+import recintoCrav2   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_2WEB.png'
+import recintoCrav3   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_3WEB.png'
+import recintoCrav4   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_4WEB.png'
+import recintoCrav5   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_5WEB.png'
+import recintoCrav6   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_6WEB.png'
+import recintoCrav7   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_7WEB.png'
+import recintoCrav8   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_8WEB.png'
+import recintoCrav9   from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_9WEB.png'
+import recintoCrav10  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_10WEB.png'
+import recintoCrav11  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_11WEB.png'
+import recintoCrav12  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_12WEB.png'
+import recintoCrav13  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_13WEB.png'
+import recintoCrav14  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_14WEB.png'
+import recintoCrav15  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_15WEB.png'
+import recintoCrav16  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_16WEB.png'
+import recintoCrav17  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_17WEB.png'
+import recintoCrav18  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_18WEB.png'
+import recintoCrav19  from '../../assets/CRAV/RECINTO CRAV/fotos/CRAV_19WEB.png'
+import recintoCravIso1 from '../../assets/CRAV/RECINTO CRAV/Edificios Isométricos/CRAV1.png'
+import recintoCravIso2 from '../../assets/CRAV/RECINTO CRAV/Edificios Isométricos/CRAV2.png'
+import recintoCravIso3 from '../../assets/CRAV/RECINTO CRAV/Edificios Isométricos/CRAV1_Azul.png'
+import recintoCravIso4 from '../../assets/CRAV/RECINTO CRAV/Edificios Isométricos/CRAV2_Azul.png'
 
 // Desiderio Guzmán
 import desiderio1      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_1WEB.png'
-import desiderio2      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_1WEB.png'
-import desiderio3      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_1WEB.png'
-import desiderio4      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_1WEB.png'
-import desiderioMaqueta from '../../assets/CRAV/DESIDERIO GUZMÁN/Edificios Isométricos/Desiderio.png'
-import desiderioPlano  from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_1WEB.png'
+import desiderio2      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_2WEB.png'
+import desiderio3      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_3WEB.png'
+import desiderio4      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_4WEB.png'
+import desiderio5      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_5WEB.png'
+import desiderio6      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIO_6WEB.png'
+import desiderio7      from '../../assets/CRAV/DESIDERIO GUZMÁN/fotos/DESIDERIOWEB.png'
+import desiderioIso1 from '../../assets/CRAV/DESIDERIO GUZMÁN/Edificios Isométricos/Desiderio.png'
+import desiderioIso2 from '../../assets/CRAV/DESIDERIO GUZMÁN/Edificios Isométricos/Desiderio_Azul.png'
 
 // Los Radales
 import radales1       from '../../assets/CRAV/LOS RADALES/fotos/RADALES_1WEB.png'
-import radales2       from '../../assets/CRAV/LOS RADALES/fotos/RADALES_1WEB.png'
-import radales3       from '../../assets/CRAV/LOS RADALES/fotos/RADALES_1WEB.png'
-import radalesMaqueta from '../../assets/CRAV/LOS RADALES/Edificios Isométricos/Radales.png'
-import radalesArchivo1 from '../../assets/CRAV/LOS RADALES/fotos/RADALES_1WEB.png'
-import radalesArchivo2 from '../../assets/CRAV/LOS RADALES/fotos/RADALES_1WEB.png'
-import radalesPlano   from '../../assets/CRAV/LOS RADALES/fotos/RADALES_1WEB.png'
+import radales2       from '../../assets/CRAV/LOS RADALES/fotos/RADALES_2WEB.png'
+import radales3       from '../../assets/CRAV/LOS RADALES/fotos/RADALES_3WEB.png'
+import radales4       from '../../assets/CRAV/LOS RADALES/fotos/RADALES_4WEB.png'
+import radales5       from '../../assets/CRAV/LOS RADALES/fotos/RADALESWEB.png'
+import radalesIso1 from '../../assets/CRAV/LOS RADALES/Edificios Isométricos/Radales.png'
+import radalesIso2 from '../../assets/CRAV/LOS RADALES/Edificios Isométricos/Radales_Azul.png'
 
 /* ─────────────────────────────────────────────
-   Componente: Carrusel
-   ───────────────────────────────────────────── 
-function Carrusel({ fotos, label }) {
+   Agrupación de fotos por recinto
+   ───────────────────────────────────────────── */
+const recintoCravFotos = [
+  recintoCrav1, recintoCrav2, recintoCrav3, recintoCrav4, recintoCrav5,
+  recintoCrav6, recintoCrav7, recintoCrav8, recintoCrav9, recintoCrav10,
+  recintoCrav11, recintoCrav12, recintoCrav13, recintoCrav14, recintoCrav15,
+  recintoCrav16, recintoCrav17, recintoCrav18, recintoCrav19,
+]
+// Maquetas isométricas: amarillas por defecto (cambiar a las _Azul si se quiere la versión azul)
+const recintoCravIso = [recintoCravIso1, recintoCravIso2]
+
+const desiderioFotos = [
+  desiderio1, desiderio2, desiderio3, desiderio4,
+  desiderio5, desiderio6, desiderio7,
+]
+const desiderioIso = [desiderioIso1]
+
+const radalesFotos = [radales1, radales2, radales3, radales4, radales5]
+const radalesIso = [radalesIso1]
+
+/* ─────────────────────────────────────────────
+   Componente: Lightbox (modal de imagen expandida)
+   Scroll-lock corregido: guarda y restaura la posición.
+   ───────────────────────────────────────────── */
+function Lightbox({ fotos, indiceActual, onClose, onNavigate, label }) {
+  const handleKey = useCallback((e) => {
+    if (e.key === 'Escape') onClose()
+    if (e.key === 'ArrowLeft') onNavigate(-1)
+    if (e.key === 'ArrowRight') onNavigate(1)
+  }, [onClose, onNavigate])
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKey)
+
+    // Bloqueo de scroll simple y seguro
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      // Restaurar el scroll al cerrar
+      document.body.style.overflow = originalOverflow
+    }
+  }, [handleKey])
+
+  // Envolvemos el JSX en createPortal para que salte cualquier problema de z-index
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+      style={{
+        background: 'rgba(15, 18, 30, 0.92)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        animation: 'fade-in 0.3s var(--ease-out-quart) both',
+      }}
+      onClick={onClose}
+    >
+      {/* Botón cerrar */}
+      <button
+        onClick={onClose}
+        aria-label="Cerrar"
+        className="absolute top-5 right-5 md:top-8 md:right-8 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300 hover:rotate-90"
+      >
+        <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none">
+          <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        </svg>
+      </button>
+
+      {/* Contador y label */}
+      <div className="absolute top-5 left-5 md:top-8 md:left-8 z-10 text-white/80 text-sm">
+        <div className="section-number text-[var(--color-penco-gold)] mb-1">{label}</div>
+        <div className="font-medium">
+          {indiceActual + 1} <span className="text-white/40">/ {fotos.length}</span>
+        </div>
+      </div>
+
+      {/* Flecha izquierda */}
+      {fotos.length > 1 && (
+        <button
+          onClick={(e) => { e.stopPropagation(); onNavigate(-1) }}
+          aria-label="Anterior"
+          className="absolute left-3 md:left-8 z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300 hover:-translate-x-1"
+        >
+          <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none">
+            <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
+
+      {/* Imagen */}
+      <div
+        className="relative flex items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <img
+          key={indiceActual}
+          src={fotos[indiceActual]}
+          alt={`${label} ${indiceActual + 1}`}
+          className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg"
+          style={{
+            animation: 'fade-in 0.4s var(--ease-out-expo) both',
+            boxShadow: '0 30px 80px rgba(0,0,0,0.5)',
+          }}
+        />
+      </div>
+
+      {/* Flecha derecha */}
+      {fotos.length > 1 && (
+        <button
+          onClick={(e) => { e.stopPropagation(); onNavigate(1) }}
+          aria-label="Siguiente"
+          className="absolute right-3 md:right-8 z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300 hover:translate-x-1"
+        >
+          <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
+
+      {/* Hint inferior */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-xs text-white/40 tracking-wider hidden md:block">
+        ESC para cerrar · ← → para navegar
+      </div>
+    </div>,
+    document.body // Destino del portal
+  )
+}
+
+/* ─────────────────────────────────────────────
+   Componente: Visor (foto grande + thumbnails)
+   - Click en thumbnail → cambia la foto principal (NO expande)
+   - Click en foto principal → abre Lightbox a pantalla completa
+   - Flechas para moverse por la galería de thumbnails
+   ───────────────────────────────────────────── */
+function Visor({ fotos, label, aspect = 'aspect-[4/3]' }) {
   const [idx, setIdx] = useState(0)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const thumbsRef = useRef(null)
 
   const prev = () => setIdx((i) => (i - 1 + fotos.length) % fotos.length)
   const next = () => setIdx((i) => (i + 1) % fotos.length)
 
+  // Mantener el thumbnail activo visible al navegar
+  // Mantener el thumbnail activo visible al navegar
+  useEffect(() => {
+    // Si el lightbox está abierto, detenemos la ejecución para evitar que la página salte
+    if (lightboxOpen) return;
+
+    const cont = thumbsRef.current
+    if (!cont) return
+    const activo = cont.children[idx]
+    if (activo) {
+      activo.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+    }
+  }, [idx, lightboxOpen]) // <-- Añade lightboxOpen a las dependencias
+
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-[var(--color-paper)] group"
-         style={{ boxShadow: 'var(--shadow-card)' }}>
-      {/* Imagen principal }
-      <div className="relative aspect-[4/3] overflow-hidden">
+    <div className="space-y-3">
+      {/* FOTO PRINCIPAL — click para expandir a pantalla completa */}
+      <div
+        className={`relative overflow-hidden rounded-2xl bg-[var(--color-paper)] group ${aspect}`}
+        style={{ boxShadow: 'var(--shadow-card)' }}
+      >
         <img
           key={idx}
           src={fotos[idx]}
           alt={`${label} ${idx + 1}`}
-          className="w-full h-full object-cover"
+          onClick={() => setLightboxOpen(true)}
+          className="w-full h-full object-cover cursor-zoom-in"
           style={{ animation: 'fade-in 0.4s var(--ease-out-quart) both' }}
         />
-        {/* Controles }
-        <button
-          onClick={prev}
-          aria-label="Anterior"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100"
-        >
-          <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
-            <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+
+        {/* Flechas sobre la foto principal */}
+        {fotos.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              aria-label="Anterior"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
+                <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              onClick={next}
+              aria-label="Siguiente"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </>
+        )}
+
+        {/* Icono de expandir (arriba derecha) */}
+        <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/0 group-hover:bg-black/50 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 pointer-events-none">
+          <svg className="w-4 h-4 text-white" viewBox="0 0 16 16" fill="none">
+            <path d="M6 2H2v4M10 2h4v4M6 14H2v-4M10 14h4v-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </button>
-        <button
-          onClick={next}
-          aria-label="Siguiente"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100"
-        >
-          <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
-            <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        {/* Contador }
-        <div className="absolute bottom-3 right-4 text-xs font-medium text-white/80 bg-black/40 px-2 py-0.5 rounded-full">
+        </div>
+
+        {/* Contador */}
+        <div className="absolute bottom-3 right-4 text-xs font-medium text-white/90 bg-black/40 px-2 py-0.5 rounded-full pointer-events-none">
           {idx + 1} / {fotos.length}
         </div>
       </div>
-      {/* Thumbnails /}
-      <div className="flex gap-2 p-3 overflow-x-auto">
-        {fotos.map((f, i) => (
+
+      {/* THUMBNAILS con flechas */}
+      {fotos.length > 1 && (
+        <div className="flex items-center gap-2">
           <button
-            key={i}
-            onClick={() => setIdx(i)}
-            className="flex-none w-14 h-10 rounded-md overflow-hidden border-2 transition-all duration-200"
-            style={{ borderColor: i === idx ? 'var(--color-penco-gold)' : 'transparent' }}
+            onClick={prev}
+            aria-label="Anterior"
+            className="flex-none w-8 h-8 rounded-full border border-[var(--color-ink)]/15 hover:border-[var(--color-penco-gold)] hover:bg-[var(--color-penco-gold)]/10 text-[var(--color-ink)] flex items-center justify-center transition-all duration-300"
           >
-            <img src={f} alt="" className="w-full h-full object-cover" />
+            <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none">
+              <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </button>
-        ))}
-      </div>
+
+          <div
+            ref={thumbsRef}
+            className="flex gap-2 overflow-x-auto py-1 scroll-smooth"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {fotos.map((f, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                className="flex-none w-16 h-12 rounded-lg overflow-hidden border-2 transition-all duration-200"
+                style={{
+                  borderColor: i === idx ? 'var(--color-penco-gold)' : 'transparent',
+                  opacity: i === idx ? 1 : 0.55,
+                }}
+              >
+                <img src={f} alt="" loading="lazy" className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={next}
+            aria-label="Siguiente"
+            className="flex-none w-8 h-8 rounded-full border border-[var(--color-ink)]/15 hover:border-[var(--color-penco-gold)] hover:bg-[var(--color-penco-gold)]/10 text-[var(--color-ink)] flex items-center justify-center transition-all duration-300"
+          >
+            <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      )}
+
+      {lightboxOpen && (
+        <Lightbox
+          fotos={fotos}
+          indiceActual={idx}
+          onClose={() => setLightboxOpen(false)}
+          onNavigate={(delta) => setIdx((i) => (i + delta + fotos.length) % fotos.length)}
+          label={label}
+        />
+      )}
     </div>
   )
 }
 
 /* ─────────────────────────────────────────────
-   Componente: ImagenConLeyenda
-   ───────────────────────────────────────────── /
-function ImagenConLeyenda({ src, alt, leyenda, aspectClass = 'aspect-[4/3]' }) {
-  return (
-    <figure className="space-y-2">
-      <div className={`rounded-2xl overflow-hidden ${aspectClass}`}
-           style={{ boxShadow: 'var(--shadow-card)' }}>
-        <img src={src} alt={alt} className="w-full h-full object-cover" />
-      </div>
-      {leyenda && (
-        <figcaption className="text-xs text-[var(--color-mute)] px-1">{leyenda}</figcaption>
-      )}
-    </figure>
-  )
-}
-
-/* ─────────────────────────────────────────────
    Componente: EtiquetaMeta  (año / dato / arquitecto)
-   ───────────────────────────────────────────── /
+   ───────────────────────────────────────────── */
 function MetaTag({ label, value }) {
   return (
     <div className="flex flex-col gap-0.5">
@@ -123,14 +335,14 @@ function MetaTag({ label, value }) {
 
 /* ─────────────────────────────────────────────
    Componente: DividerLine
-   ───────────────────────────────────────────── /
+   ───────────────────────────────────────────── */
 function Divider() {
   return <div className="border-t border-[var(--color-ink)]/10 my-20 md:my-28" />
 }
 
 /* ─────────────────────────────────────────────
    Componente: SectionHeader
-   ───────────────────────────────────────────── /
+   ───────────────────────────────────────────── */
 function SectionHeader({ numero, titulo, subtitulo }) {
   return (
     <div className="reveal mb-12 md:mb-16">
@@ -145,8 +357,22 @@ function SectionHeader({ numero, titulo, subtitulo }) {
 }
 
 /* ─────────────────────────────────────────────
+   Componente: BloqueMaqueta (header + visor isométrico)
+   ───────────────────────────────────────────── */
+function BloqueMaqueta({ fotos, label }) {
+  return (
+    <div className="reveal">
+      <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
+        <span className="section-number">Maquetas 3D</span>
+      </div>
+      <Visor fotos={fotos} label={`Maqueta · ${label}`} aspect="aspect-[16/9]" />
+    </div>
+  )
+}
+
+/* ─────────────────────────────────────────────
    Página principal
-   ───────────────────────────────────────────── /
+   ───────────────────────────────────────────── */
 export default function CRAV() {
   const containerRef = useScrollReveal()
 
@@ -155,12 +381,12 @@ export default function CRAV() {
 
       {/* ══════════════════════════════════════
           HERO
-          ══════════════════════════════════════ *}
+          ══════════════════════════════════════ */}
       <section className="relative min-h-[70vh] flex flex-col justify-end text-white overflow-hidden grain">
         <div
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{
-            backgroundImage: `url(${recintoCrav1})`,
+            backgroundImage: `url(${fondoCrav})`,
             animation: 'scale-in 1.6s var(--ease-out-expo) both',
           }}
         />
@@ -185,12 +411,12 @@ export default function CRAV() {
 
       {/* ══════════════════════════════════════
           CONTENIDO PRINCIPAL
-          ══════════════════════════════════════ *}
+          ══════════════════════════════════════ */}
       <div className="max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14">
 
         {/* ─────────────────────────────────────
             01 · RECINTO CRAV
-            ───────────────────────────────────── *}
+            ───────────────────────────────────── */}
         <section className="pt-24 md:pt-36">
 
           <SectionHeader
@@ -199,16 +425,16 @@ export default function CRAV() {
             titulo={<>Recinto<br /><span className="font-display-italic text-[var(--color-penco-blue-600)]">CRAV</span></>}
           />
 
-          {/* Meta datos *}
+          {/* Meta datos */}
           <div className="reveal flex flex-wrap gap-8 mb-12 pb-8 border-b border-[var(--color-ink)]/10">
             <MetaTag label="ETAPAS" value="1900 · 1927 · 1937 · 1940 · 1941–1942" />
             <MetaTag label="ARQUITECTOS" value="Jorge y Alfredo Velasco Urzúa" />
             <MetaTag label="EDIFICIOS" value="2 principales" />
           </div>
 
-          {/* Texto + Carrusel /}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal">
-            {/* Texto *}
+          {/* Texto + Visor de fotos (lado a lado) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal items-start">
+            {/* Texto */}
             <div className="space-y-5 text-[var(--color-mute)] text-base md:text-lg leading-relaxed">
               <p>
                 El llamado «Recinto CRAV» es el resultado de múltiples etapas de
@@ -240,34 +466,21 @@ export default function CRAV() {
               </p>
             </div>
 
-            {/* Carrusel *}
-            <div className="reveal">
-              <Carrusel
-                fotos={[recintoCrav1, recintoCrav2, recintoCrav3, recintoCrav4]}
-                label="Recinto CRAV"
-              />
+            {/* Visor de fotos — sticky para acompañar la lectura */}
+            <div className="lg:sticky lg:top-24">
+              <Visor fotos={recintoCravFotos} label="Recinto CRAV" />
             </div>
           </div>
 
-          {/* Maqueta 3D /}
-          <div className="reveal">
-            <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
-              <span className="section-number">Maqueta 3D</span>
-            </div>
-            <ImagenConLeyenda
-              src={recintoMaqueta}
-              alt="Maqueta 3D Recinto CRAV"
-              leyenda="Reconstrucción isométrica del Recinto CRAV"
-              aspectClass="aspect-[16/7]"
-            />
-          </div>
+          {/* Maquetas 3D isométricas */}
+          <BloqueMaqueta fotos={recintoCravIso} label="Recinto CRAV" />
         </section>
 
         <Divider />
 
         {/* ─────────────────────────────────────
             02 · POBLACIÓN DESIDERIO GUZMÁN
-            ───────────────────────────────────── *}
+            ───────────────────────────────────── */}
         <section>
 
           <SectionHeader
@@ -276,7 +489,7 @@ export default function CRAV() {
             titulo={<>Desiderio<br /><span className="font-display-italic text-[var(--color-penco-blue-600)]">Guzmán</span></>}
           />
 
-          {/* Meta datos *}
+          {/* Meta datos */}
           <div className="reveal flex flex-wrap gap-8 mb-12 pb-8 border-b border-[var(--color-ink)]/10">
             <MetaTag label="AÑO" value="1961" />
             <MetaTag label="VIVIENDAS" value="84 (80 pareadas + 4 aisladas)" />
@@ -284,17 +497,14 @@ export default function CRAV() {
             <MetaTag label="ARQUITECTOS" value="Santiago Roi y Ricardo Hempel" />
           </div>
 
-          {/* Texto + Carrusel *}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal">
-            {/* Carrusel primero en mobile, segundo en desktop *}
-            <div className="order-2 lg:order-1">
-              <Carrusel
-                fotos={[desiderio1, desiderio2, desiderio3, desiderio4]}
-                label="Población Desiderio Guzmán"
-              />
+          {/* Texto + Visor (visor a la izquierda en desktop) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal items-start">
+            {/* Visor primero en desktop */}
+            <div className="order-2 lg:order-1 lg:sticky lg:top-24">
+              <Visor fotos={desiderioFotos} label="Población Desiderio Guzmán" />
             </div>
 
-            {/* Texto *}
+            {/* Texto */}
             <div className="order-1 lg:order-2 space-y-5 text-[var(--color-mute)] text-base md:text-lg leading-relaxed">
               <p>
                 La población Desiderio Guzmán corresponde a la expansión habitacional
@@ -319,36 +529,15 @@ export default function CRAV() {
             </div>
           </div>
 
-          {/* Maqueta 3D + Plano — side by side /}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
-            <div>
-              <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
-                <span className="section-number">Maqueta 3D</span>
-              </div>
-              <ImagenConLeyenda
-                src={desiderioMaqueta}
-                alt="Maqueta 3D Población Desiderio Guzmán"
-                leyenda="Reconstrucción isométrica de la Población Desiderio Guzmán"
-              />
-            </div>
-            <div>
-              <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
-                <span className="section-number">Plano</span>
-              </div>
-              <ImagenConLeyenda
-                src={desiderioPlano}
-                alt="Plano Población Desiderio Guzmán"
-                leyenda="Planimetría de la Población Desiderio Guzmán"
-              />
-            </div>
-          </div>
+          {/* Maquetas 3D isométricas */}
+          <BloqueMaqueta fotos={desiderioIso} label="Población Desiderio Guzmán" />
         </section>
 
         <Divider />
 
         {/* ─────────────────────────────────────
             03 · VILLA LOS RADALES
-            ───────────────────────────────────── *}
+            ───────────────────────────────────── */}
         <section className="pb-24 md:pb-36">
 
           <SectionHeader
@@ -357,16 +546,16 @@ export default function CRAV() {
             titulo={<>Los<br /><span className="font-display-italic text-[var(--color-penco-blue-600)]">Radales</span></>}
           />
 
-          {/* Meta datos *}
+          {/* Meta datos */}
           <div className="reveal flex flex-wrap gap-8 mb-12 pb-8 border-b border-[var(--color-ink)]/10">
             <MetaTag label="AÑO" value="1974 (ocupadas en 1976)" />
             <MetaTag label="VIVIENDAS" value="72 casas pareadas de 2 niveles" />
             <MetaTag label="ARQUITECTOS" value="Roberto Goycoolea, Luis Soto y Ramón Jofré" />
           </div>
 
-          {/* Texto + Fotos actuales *}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal">
-            {/* Texto *}
+          {/* Texto + Visor (lado a lado) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16 reveal items-start">
+            {/* Texto */}
             <div className="space-y-5 text-[var(--color-mute)] text-base md:text-lg leading-relaxed">
               <p>
                 Villa Los Radales, ubicada en un terreno próximo al Recinto CRAV,
@@ -388,77 +577,17 @@ export default function CRAV() {
               </p>
             </div>
 
-            {/* Fotos actuales *}
-            <div className="grid grid-cols-2 gap-3">
-              {[radales1, radales2, radales3].map((foto, i) => (
-                <div
-                  key={i}
-                  className={`rounded-xl overflow-hidden ${i === 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-square'}`}
-                  style={{ boxShadow: 'var(--shadow-card)' }}
-                >
-                  <img src={foto} alt={`Villa Los Radales ${i + 1}`} className="w-full h-full object-cover" />
-                </div>
-              ))}
+            {/* Visor de fotos */}
+            <div className="lg:sticky lg:top-24">
+              <Visor fotos={radalesFotos} label="Villa Los Radales" />
             </div>
           </div>
 
-          {/* Maqueta 3D *}
-          <div className="reveal mb-16">
-            <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
-              <span className="section-number">Maqueta 3D</span>
-            </div>
-            <ImagenConLeyenda
-              src={radalesMaqueta}
-              alt="Maqueta 3D Villa Los Radales"
-              leyenda="Reconstrucción isométrica de Villa Los Radales"
-              aspectClass="aspect-[16/7]"
-            />
-          </div>
-
-          {/* Fotos de archivo /}
-          <div className="reveal mb-16">
-            <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
-              <span className="section-number">Fotos de archivo</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {[radalesArchivo1, radalesArchivo2].map((foto, i) => (
-                <ImagenConLeyenda
-                  key={i}
-                  src={foto}
-                  alt={`Villa Los Radales — archivo ${i + 1}`}
-                  leyenda={`Registro histórico de Villa Los Radales (${i === 0 ? 'c. 1976' : 'c. 1980'})`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Plano *}
-          <div className="reveal">
-            <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
-              <span className="section-number">Plano</span>
-            </div>
-            <ImagenConLeyenda
-              src={radalesPlano}
-              alt="Plano Villa Los Radales"
-              leyenda="Planimetría de Villa Los Radales"
-              aspectClass="aspect-[4/3]"
-            />
-          </div>
+          {/* Maquetas 3D isométricas */}
+          <BloqueMaqueta fotos={radalesIso} label="Villa Los Radales" />
 
         </section>
       </div>
     </div>
-  )
-}
-*/
-import PagePlaceholder from '../../components/ui/PagePlaceholder'
-
-export default function CRAV() {
-  return (
-    <PagePlaceholder
-      numero="02"
-      titulo="CRAV"
-      descripcion="Compañía Refinería de Azúcar de Viña del Mar. Incluye Recinto CRAV, Población Desiderio Guzmán y Villa Los Radales."
-    />
   )
 }
