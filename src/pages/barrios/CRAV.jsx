@@ -196,18 +196,16 @@ function Visor({ fotos, label, aspect = 'aspect-[4/3]' }) {
   const prev = () => setIdx((i) => (i - 1 + fotos.length) % fotos.length)
   const next = () => setIdx((i) => (i + 1) % fotos.length)
 
-  // Mantener el thumbnail activo visible al navegar
-  // Mantener el thumbnail activo visible al navegar
   useEffect(() => {
-    // Si el lightbox está abierto, detenemos la ejecución para evitar que la página salte
-    if (lightboxOpen) return;
-
+    if (lightboxOpen) return
     const cont = thumbsRef.current
     if (!cont) return
     const activo = cont.children[idx]
-    if (activo) {
-      activo.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
-    }
+    if (!activo) return
+    cont.scrollTo({
+      left: activo.offsetLeft - cont.offsetWidth / 2 + activo.offsetWidth / 2,
+      behavior: 'smooth',
+    })
   }, [idx, lightboxOpen]) // <-- Añade lightboxOpen a las dependencias
 
   return (

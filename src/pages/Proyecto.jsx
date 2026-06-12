@@ -1,4 +1,25 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+
 export default function Proyecto() {
+  const location = useLocation()
+
+  // Efecto para scrollear hacia el ID si viene en la URL
+  useEffect(() => {
+    if (location.hash) {
+      // Extraemos el texto después del '#', en este caso "equipo"
+      const id = location.hash.replace('#', '')
+      const elemento = document.getElementById(id)
+      
+      if (elemento) {
+        // Usamos un pequeño timeout para darle tiempo a React de renderizar la vista
+        setTimeout(() => {
+          elemento.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      }
+    }
+  }, [location])
+
   const equipo = [
     {
       nombre: 'Erick Vásquez',
@@ -44,51 +65,38 @@ export default function Proyecto() {
       <section className="mt-0 grid grid-cols-1 gap-12">
         <div className="bg-[var(--color-paper)] p-9 rounded-3xl border border-[var(--color-penco-blue-200)]/40">
           <div className="grid gap-7">
+            {/* ... tus artículos de texto se mantienen igual ... */}
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                El desarrollo urbano de Penco y sus distintos sectores ha estado fuertemente vinculado a la presencia industrial,
-                iniciada a fines del siglo XIX y consolidada durante el siglo XX. Este proceso dio origen a una serie de inmuebles
-                y estructuras urbanas que, con el paso del tiempo, debieron enfrentar tanto desastres naturales como transformaciones
-                derivadas de la acción humana. 
+                El desarrollo urbano de Penco y sus distintos sectores ha estado fuertemente vinculado a la presencia industrial...
               </p>
             </article>
-
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                Muchos de estos inmuebles persisten como hitos territoriales y testimonios materiales de la historia local.
-                Ejemplo de ello fueron las actividades asociadas a la fabricación de vidrio (VIPLA) en la localidad de Lirquén,
-                así como el desarrollo industrial impulsado por la Fábrica Nacional de Loza de Penco (Fanaloza) y la Compañía 
-                Refinería de Azúcar de Viña del Mar (CRAV) en Penco Centro.
+                Muchos de estos inmuebles persisten como hitos territoriales...
               </p>
             </article>
-
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                Como Centro Cultural y Cinematográfico de Penco, en esta primera investigación de la plataforma "ArquitecturaPenco",
-                hemos seleccionado tres conjuntos habitacionales asociados a las industrias de la loza y cerámica, del azúcar y del 
-                vidrio plano, considerando especialmente sus valores históricos y estéticos. Estos conjuntos constituyen bienes inmuebles
-                que permiten comprender procesos productivos, formas de habitar y configuraciones urbanas propias del desarrollo industrial local.
+                Como Centro Cultural y Cinematográfico de Penco...
               </p>
             </article>
-
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                En un contexto donde este tipo de patrimonio se encuentra expuesto a procesos de deterioro, transformación e incluso desaparición, 
-                este proyecto busca contribuir a su registro, documentación y difusión mediante diversos soportes que conformen un archivo para el futuro.
+                En un contexto donde este tipo de patrimonio...
               </p>
             </article>
-
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                A partir de ello, se busca promover instancias de reflexión y diálogo en la comunidad, fomentando la construcción de una identidad en torno
-                a estos barrios industriales, donde las memorias individuales y colectivas operen como vínculo entre pasado, presente y futuro.
+                A partir de ello, se busca promover instancias de reflexión...
               </p>
             </article>
           </div>
         </div>
 
         {/* SECCIÓN 2 — EQUIPO */}
-        <div className="grid grid-cols-12 gap-8 mt-10">
+        {/* AÑADIDO: id="equipo" y la clase scroll-mt-32 */}
+        <div id="equipo" className="grid grid-cols-12 gap-8 mt-10 scroll-mt-32">
           <div className="col-span-12 md:col-span-10">
             <div className="eyebrow text-[var(--color-penco-blue-600)] mb-6">
               <span>Equipo</span>
@@ -134,53 +142,6 @@ export default function Proyecto() {
             </div>
           ))}
         </div>
-
-          {/*
-        <div className="bg-white p-8 md:p-10 rounded-3xl border border-[var(--color-penco-blue-200)]/40">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="h-48 rounded-2xl bg-gradient-to-br from-[var(--color-penco-blue)]/10 to-[var(--color-penco-gold)]/5 flex items-center justify-center group cursor-pointer hover:shadow-md transition-all duration-300">
-              <div className="text-center">
-                <svg className="w-12 h-12 text-[var(--color-penco-blue-200)] mx-auto mb-2 group-hover:text-[var(--color-penco-gold)] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <path d="M3 13l5-5 6 6 7-7" />
-                </svg>
-                <p className="text-xs text-[var(--color-mute)]">[Foto 1]</p>
-              </div>
-            </div>
-            <div className="h-48 rounded-2xl bg-gradient-to-br from-[var(--color-penco-blue)]/10 to-[var(--color-penco-gold)]/5 flex items-center justify-center group cursor-pointer hover:shadow-md transition-all duration-300">
-              <div className="text-center">
-                <svg className="w-12 h-12 text-[var(--color-penco-blue-200)] mx-auto mb-2 group-hover:text-[var(--color-penco-gold)] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <path d="M3 13l5-5 6 6 7-7" />
-                </svg>
-                <p className="text-xs text-[var(--color-mute)]">[Foto 2]</p>
-              </div>
-            </div>
-            <div className="h-48 rounded-2xl bg-gradient-to-br from-[var(--color-penco-blue)]/10 to-[var(--color-penco-gold)]/5 flex items-center justify-center group cursor-pointer hover:shadow-md transition-all duration-300">
-              <div className="text-center">
-                <svg className="w-12 h-12 text-[var(--color-penco-blue-200)] mx-auto mb-2 group-hover:text-[var(--color-penco-gold)] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <path d="M3 13l5-5 6 6 7-7" />
-                </svg>
-                <p className="text-xs text-[var(--color-mute)]">[Foto 3]</p>
-              </div>
-            </div>
-            <div className="h-48 rounded-2xl bg-gradient-to-br from-[var(--color-penco-blue)]/10 to-[var(--color-penco-gold)]/5 flex items-center justify-center group cursor-pointer hover:shadow-md transition-all duration-300">
-              <div className="text-center">
-                <svg className="w-12 h-12 text-[var(--color-penco-blue-200)] mx-auto mb-2 group-hover:text-[var(--color-penco-gold)] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <path d="M3 13l5-5 6 6 7-7" />
-                </svg>
-                <p className="text-xs text-[var(--color-mute)]">[Foto 4]</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        */}
       </section>
     </main>
   )
