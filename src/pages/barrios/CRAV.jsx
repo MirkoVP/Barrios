@@ -362,7 +362,7 @@ function BloqueMaqueta({ fotos, label }) {
   return (
     <div className="reveal">
       <div className="eyebrow text-[var(--color-penco-gold-deep)] mb-4">
-        <span className="section-number">Maquetas 3D</span>
+        <span className="section-number">Maquetas</span>
       </div>
       <Visor fotos={fotos} label={`Maqueta · ${label}`} aspect="aspect-[16/9]" />
     </div>

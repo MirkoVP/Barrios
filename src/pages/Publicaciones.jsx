@@ -191,7 +191,6 @@ export default function Publicaciones() {
         <div className="grid grid-cols-12 gap-8 mb-12 reveal">
           <div className="col-span-12 md:col-span-9">
             <div className="eyebrow text-[var(--color-penco-blue-600)] mb-6">
-              <span className="section-number">/ 07</span>
               <span>Publicación</span>
             </div>
             <h1 className="font-display text-5xl md:text-7xl leading-[0.95] text-[var(--color-ink)] mb-6">

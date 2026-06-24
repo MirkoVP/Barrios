@@ -228,7 +228,7 @@ function TarjetaImagen({ src, etiqueta, onClick }) {
 /* ─────────────────────────────────────────────
    Página principal
    ───────────────────────────────────────────── */
-export default function Maquetas3D() {
+export default function Maquetas() {
   const containerRef = useScrollReveal()
   const [color, setColor] = useState('amarillo') // 'amarillo' | 'azul'
 
@@ -254,7 +254,7 @@ export default function Maquetas3D() {
           <div className="col-span-12 md:col-span-9">
             <div className="eyebrow text-[var(--color-penco-blue-600)] mb-6">
               <span className="section-number"></span>
-              <span>Maquetas 3D</span>
+              <span>Maquetas</span>
             </div>
             <h1 className="font-display text-5xl md:text-7xl leading-[0.95] text-[var(--color-ink)] mb-6">
               Reconstrucciones

@@ -68,27 +68,41 @@ export default function Proyecto() {
             {/* ... tus artículos de texto se mantienen igual ... */}
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                El desarrollo urbano de Penco y sus distintos sectores ha estado fuertemente vinculado a la presencia industrial...
+                El desarrollo urbano de Penco y sus distintos sectores ha estado fuertemente vinculado a la presencia
+                 industrial, iniciada a fines del siglo XIX y consolidada durante el siglo XX. Este proceso dio origen 
+                 a una serie de inmuebles y estructuras urbanas que, con el paso del tiempo, debieron enfrentar tanto 
+                 desastres naturales como transformaciones derivadas de la acción humana.
               </p>
             </article>
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                Muchos de estos inmuebles persisten como hitos territoriales...
+                Muchos de estos inmuebles persisten como hitos territoriales y testimonios materiales de la historia
+                local. Ejemplo de ello fueron las actividades asociadas a la fabricación de vidrio (VIPLA) en la
+                localidad de Lirquén, así como el desarrollo industrial impulsado por la Fábrica Nacional de Loza
+                de Penco (Fanaloza) y la Compañía Refinería de Azúcar de Viña del Mar (CRAV) en Penco Centro.
               </p>
             </article>
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                Como Centro Cultural y Cinematográfico de Penco...
+                Como Centro Cultural y Cinematográfico de Penco, en esta primera investigación de la plataforma 
+                "ArquitecturaPenco", hemos seleccionado tres conjuntos habitacionales asociados a las industrias de la loza 
+                y cerámica, del azúcar y del vidrio plano, considerando especialmente sus valores históricos y estéticos. 
+                Estos conjuntos constituyen bienes inmuebles que permiten comprender procesos productivos, formas de habitar 
+                y configuraciones urbanas propias del desarrollo industrial local.
               </p>
             </article>
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                En un contexto donde este tipo de patrimonio...
+                En un contexto donde este tipo de patrimonio se encuentra expuesto a procesos de deterioro,
+                 transformación e incluso desaparición, este proyecto busca contribuir a su registro, documentación 
+                 y difusión mediante diversos soportes que conformen un archivo para el futuro.
               </p>
             </article>
             <article>
               <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
-                A partir de ello, se busca promover instancias de reflexión...
+                A partir de ello, se busca promover instancias de reflexión y diálogo en la comunidad, 
+                fomentando la construcción de una identidad en torno a estos barrios industriales, donde las
+                 memorias individuales y colectivas operen como vínculo entre pasado, presente y futuro.
               </p>
             </article>
           </div>

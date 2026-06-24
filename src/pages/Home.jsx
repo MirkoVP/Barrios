@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { barrios } from '../data/barrios'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import ProximamenteVideo from '../components/home/ProximamenteVideo'
 
 // ✅ Imports de imágenes — Vite las procesa y optimiza automáticamente
 import fondoHome from '../assets/fondohome.png'
@@ -57,7 +56,7 @@ export default function Home() {
                 obreras de <span className="text-[var(--color-penco-gold)]">CRAV</span>,{' '}
                 <span className="text-[var(--color-penco-gold)]">VIPLA</span> y{' '}
                 <span className="text-[var(--color-penco-gold)]">FANALOZA</span> a
-                través de fotografías, maquetas 3D y archivos históricos.
+                través de fotografías, maquetas y archivos históricos.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-6">
                 <Link to="/proyecto" className="btn-primary" style={{ background: 'white', color: 'var(--color-ink)', borderColor: 'white' }}>
@@ -92,7 +91,6 @@ export default function Home() {
 
 
       </section>
-      <ProximamenteVideo />  
 
       {/* ===================================================================
           GRILLA DE BARRIOS — la sección protagonista
@@ -242,12 +240,11 @@ export default function Home() {
 
       {/* ===================================================================
           RECURSOS DEL ARCHIVO — grilla refinada
-          =================================================================== 
+          =================================================================== */}
       <section className="max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-36">
         <div className="grid grid-cols-12 gap-8 mb-16 md:mb-20 reveal">
           <div className="col-span-12 md:col-span-8">
             <div className="eyebrow text-[var(--color-penco-blue-600)] mb-5">
-              <span className="section-number">/ 03</span>
               <span>Recursos del archivo</span>
             </div>
             <h2 className="font-display text-5xl md:text-7xl leading-[0.95] text-[var(--color-ink)]">
@@ -262,7 +259,6 @@ export default function Home() {
           {[
             {
               to: '/videos',
-              num: '04',
               label: 'Videos',
               desc: 'Registros audiovisuales de los recintos industriales y testimonios de quienes habitaron sus poblaciones obreras.',
               icon: (
@@ -274,7 +270,7 @@ export default function Home() {
             },
             {
               to: '/publicaciones',
-              num: '05',
+            
               label: 'Libro',
               desc: '«Barrios Industriales» — publicación que recoge la investigación arquitectónica y patrimonial completa.',
               icon: (
@@ -285,9 +281,9 @@ export default function Home() {
               ),
             },
             {
-              to: '/maquetas-3d',
-              num: '06',
-              label: 'Maquetas 3D',
+              to: '/maquetas',
+              
+              label: 'Maquetas',
               desc: 'Reconstrucciones tridimensionales navegables de los recintos, basadas en planos históricos y observación directa.',
               icon: (
                 <svg viewBox="0 0 32 32" fill="none">
@@ -302,12 +298,10 @@ export default function Home() {
               to={item.to}
               className="reveal group relative bg-white rounded-2xl p-8 lg:p-10 overflow-hidden card"
             >
-              {/* Acento dorado decorativo (top-right) *
               <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-[var(--color-penco-gold)]/0 group-hover:bg-[var(--color-penco-gold)]/15 transition-all duration-700 blur-2xl" />
 
               <div className="relative">
-                <div className="flex items-start justify-between mb-12">
-                  <div className="section-number text-[var(--color-mute)]">/ {item.num}</div>
+                <div className="flex items-start justify-end mb-12">
                   <div className="w-12 h-12 text-[var(--color-penco-blue-600)] group-hover:text-[var(--color-penco-gold-deep)] transition-colors duration-500">
                     {item.icon}
                   </div>
