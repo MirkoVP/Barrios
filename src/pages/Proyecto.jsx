@@ -44,7 +44,7 @@ export default function Proyecto() {
     {
       nombre: 'Marcelo Gotelli',
       rol: ' Creador Audiovisual',
-      link: '',
+      link: 'https://www.youtube.com/@marceloTV2007',
     },
   ]
 
@@ -67,7 +67,7 @@ export default function Proyecto() {
           <div className="grid gap-7">
             {/* ... tus artículos de texto se mantienen igual ... */}
             <article>
-              <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
+              <p className="text-base leading-relaxed text-[var(--color-ink-soft)] text-justify">
                 El desarrollo urbano de Penco y sus distintos sectores ha estado fuertemente vinculado a la presencia
                  industrial, iniciada a fines del siglo XIX y consolidada durante el siglo XX. Este proceso dio origen 
                  a una serie de inmuebles y estructuras urbanas que, con el paso del tiempo, debieron enfrentar tanto 
@@ -75,7 +75,7 @@ export default function Proyecto() {
               </p>
             </article>
             <article>
-              <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
+              <p className="text-base leading-relaxed text-[var(--color-ink-soft)] text-justify">
                 Muchos de estos inmuebles persisten como hitos territoriales y testimonios materiales de la historia
                 local. Ejemplo de ello fueron las actividades asociadas a la fabricación de vidrio (VIPLA) en la
                 localidad de Lirquén, así como el desarrollo industrial impulsado por la Fábrica Nacional de Loza
@@ -83,7 +83,7 @@ export default function Proyecto() {
               </p>
             </article>
             <article>
-              <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
+              <p className="text-base leading-relaxed text-[var(--color-ink-soft)] text-justify">
                 Como Centro Cultural y Cinematográfico de Penco, en esta primera investigación de la plataforma 
                 "ArquitecturaPenco", hemos seleccionado tres conjuntos habitacionales asociados a las industrias de la loza 
                 y cerámica, del azúcar y del vidrio plano, considerando especialmente sus valores históricos y estéticos. 
@@ -92,14 +92,14 @@ export default function Proyecto() {
               </p>
             </article>
             <article>
-              <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
+              <p className="text-base leading-relaxed text-[var(--color-ink-soft)] text-justify">
                 En un contexto donde este tipo de patrimonio se encuentra expuesto a procesos de deterioro,
                  transformación e incluso desaparición, este proyecto busca contribuir a su registro, documentación 
                  y difusión mediante diversos soportes que conformen un archivo para el futuro.
               </p>
             </article>
             <article>
-              <p className="text-base leading-relaxed text-[var(--color-ink-soft)]">
+              <p className="text-base leading-relaxed text-[var(--color-ink-soft)] text-justify">
                 A partir de ello, se busca promover instancias de reflexión y diálogo en la comunidad, 
                 fomentando la construcción de una identidad en torno a estos barrios industriales, donde las
                  memorias individuales y colectivas operen como vínculo entre pasado, presente y futuro.
@@ -140,13 +140,19 @@ export default function Proyecto() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--color-penco-blue-600)] text-white hover:bg-[var(--color-penco-gold-deep)] transition-all duration-300 shrink-0"
-                    aria-label="Instagram"
+                    aria-label={persona.link.includes('youtube') ? 'YouTube' : 'Instagram'}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                      <circle cx="12" cy="12" r="4"/>
-                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-                    </svg>
+                    {persona.link.includes('youtube') ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23 7s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.6 2.8 12 2.8 12 2.8s-4.6 0-6.8.1c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.1.7 11.3v2c0 2.1.3 4.3.3 4.3s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.4 21.8 12 21.8 12 21.8s4.6 0 6.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.1.3-4.3v-2C23.3 9.1 23 7 23 7zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/>
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                      </svg>
+                    )}
                   </a>
                 )}
               </div>

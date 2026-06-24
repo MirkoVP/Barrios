@@ -15,12 +15,8 @@ function crearIcono(color) {
     html: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="30" viewBox="0 0 32 30">
       <!-- Paredes -->
       <rect x="4" y="15" width="24" height="14" fill="${color}" stroke="white" stroke-width="1.2" stroke-linejoin="round"/>
-      <!-- Ventana 4 paneles -->
-      <rect x="6" y="18" width="8" height="6" fill="white" opacity="0.85"/>
-      <line x1="10" y1="18" x2="10" y2="24" stroke="${color}" stroke-width="0.8"/>
+    
       <line x1="6"  y1="21" x2="14" y2="21" stroke="${color}" stroke-width="0.8"/>
-      <!-- Puerta -->
-      <rect x="19" y="21" width="6" height="8" fill="white" opacity="0.7"/>
       <!-- Techo con vuelo -->
       <polygon points="0,16 16,5 32,16" fill="${color}" stroke="white" stroke-width="1.2" stroke-linejoin="round"/>
       <!-- Chimenea -->
