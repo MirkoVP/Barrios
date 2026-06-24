@@ -12,13 +12,22 @@ const COLORES = {
 function crearIcono(color) {
   return L.divIcon({
     className: '',
-    html: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
-      <path d="M11 0C4.924 0 0 4.924 0 11c0 7.667 11 19 11 19S22 18.667 22 11C22 4.924 17.076 0 11 0z"
-        fill="${color}" stroke="white" stroke-width="1.5"/>
-      <circle cx="11" cy="11" r="4" fill="white" opacity="0.9"/>
+    html: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="30" viewBox="0 0 32 30">
+      <!-- Paredes -->
+      <rect x="4" y="15" width="24" height="14" fill="${color}" stroke="white" stroke-width="1.2" stroke-linejoin="round"/>
+      <!-- Ventana 4 paneles -->
+      <rect x="6" y="18" width="8" height="6" fill="white" opacity="0.85"/>
+      <line x1="10" y1="18" x2="10" y2="24" stroke="${color}" stroke-width="0.8"/>
+      <line x1="6"  y1="21" x2="14" y2="21" stroke="${color}" stroke-width="0.8"/>
+      <!-- Puerta -->
+      <rect x="19" y="21" width="6" height="8" fill="white" opacity="0.7"/>
+      <!-- Techo con vuelo -->
+      <polygon points="0,16 16,5 32,16" fill="${color}" stroke="white" stroke-width="1.2" stroke-linejoin="round"/>
+      <!-- Chimenea -->
+      <rect x="7" y="1" width="4" height="11" fill="${color}"/>
     </svg>`,
-    iconSize: [22, 30],
-    iconAnchor: [11, 30],
+    iconSize: [32, 30],
+    iconAnchor: [16, 30],
     popupAnchor: [0, -32],
   })
 }
@@ -44,7 +53,6 @@ export default function Mapa() {
 
       {/* ── Encabezado ── */}
       <div className="max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14 pt-32 md:pt-40 pb-10">
-        <span className="eyebrow text-[var(--color-mute)] mb-6 block">05</span>
         <h1 className="font-display text-5xl md:text-7xl text-[var(--color-ink)] mb-4">
           Mapa<br /><em>Interactivo</em>
         </h1>

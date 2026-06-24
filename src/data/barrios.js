@@ -54,7 +54,7 @@ export const navegacion = {
   multimedia: [
     { label: 'Libro · Publicaciones', to: '/publicaciones' },
     { label: 'Videos', to: '/videos' },
-    { label: 'Maquetas 3D', to: '/maquetas-3d' },
+    { label: 'Maquetas', to: '/maquetas-3d' },
     { label: 'Mapa interactivo', to: '/mapa' },
   ],
 }
