@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { useLocation } from 'react-router-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 /* ─────────────────────────────────────────────
@@ -341,6 +342,17 @@ function BloquePlano({ plano, label }) {
    ───────────────────────────────────────────── */
 export default function Fanaloza() {
   const containerRef = useScrollReveal()
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '')
+      const elemento = document.getElementById(id)
+      if (elemento) {
+        setTimeout(() => elemento.scrollIntoView({ behavior: 'smooth' }), 100)
+      }
+    }
+  }, [location])
 
   return (
     <div ref={containerRef}>
@@ -377,7 +389,7 @@ export default function Fanaloza() {
       <div className="max-w-[1480px] mx-auto px-6 md:px-10 lg:px-14">
 
         {/* ───────────────────────── 01 · JUAN DÍAZ ───────────────────────── */}
-        <section className="pt-24 md:pt-36">
+        <section id="juan-diaz" className="pt-24 md:pt-36">
 
           <SectionHeader
             subtitulo="Población"
@@ -432,7 +444,7 @@ export default function Fanaloza() {
         <Divider />
 
         {/* ───────────────────────── 02 · FACUNDO DÍAZ ───────────────────────── */}
-        <section className="pb-24 md:pb-36">
+        <section id="facundo-diaz" className="pb-24 md:pb-36">
 
           <SectionHeader
             subtitulo="Población"

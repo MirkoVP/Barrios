@@ -30,12 +30,12 @@ const ICONOS = Object.fromEntries(
 
 // Coordenadas calculadas como centroides de los polígonos del KML
 const PINES = [
-  { nombre: 'Recinto CRAV',          barrio: 'CRAV',     slug: 'crav',     coords: [-36.7446, -72.9983] },
-  { nombre: 'P. Desiderio Guzmán',   barrio: 'CRAV',     slug: 'crav',     coords: [-36.7502, -72.9994] },
-  { nombre: 'Villa Los Radales',     barrio: 'CRAV',     slug: 'crav',     coords: [-36.7498, -72.9983] },
-  { nombre: 'VIPLA',                 barrio: 'VIPLA',    slug: 'vipla',    coords: [-36.7219, -72.9760] },
-  { nombre: 'Población Juan Díaz',   barrio: 'FANALOZA', slug: 'fanaloza', coords: [-36.7359, -72.9924] },
-  { nombre: 'Población Facundo Díaz',barrio: 'FANALOZA', slug: 'fanaloza', coords: [-36.7360, -72.9932] },
+  { nombre: 'Recinto CRAV',          barrio: 'CRAV',     to: '/barrios/crav#recinto-crav',       coords: [-36.7446, -72.9983] },
+  { nombre: 'P. Desiderio Guzmán',   barrio: 'CRAV',     to: '/barrios/crav#desiderio-guzman',   coords: [-36.7502, -72.9994] },
+  { nombre: 'Villa Los Radales',     barrio: 'CRAV',     to: '/barrios/crav#los-radales',        coords: [-36.7498, -72.9983] },
+  { nombre: 'VIPLA',                 barrio: 'VIPLA',    to: '/barrios/vipla',                   coords: [-36.7219, -72.976] },
+  { nombre: 'Población Juan Díaz',   barrio: 'FANALOZA', to: '/barrios/fanaloza#juan-diaz',      coords: [-36.7359, -72.9924] },
+  { nombre: 'Población Facundo Díaz',barrio: 'FANALOZA', to: '/barrios/fanaloza#facundo-diaz',   coords: [-36.736, -72.9932] },
 ]
 
 export default function Mapa() {
@@ -100,10 +100,10 @@ export default function Mapa() {
                       {pin.barrio}
                     </p>
                     <Link
-                      to={`/barrios/${pin.slug}`}
+                      to={pin.to}
                       style={{ fontSize: '12px', color: COLORES[pin.barrio], fontWeight: 700, textDecoration: 'none' }}
                     >
-                      Ver barrio →
+                      Ver sección →
                     </Link>
                   </div>
                 </Popup>

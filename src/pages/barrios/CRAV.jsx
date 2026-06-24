@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { useLocation } from 'react-router-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 /* ─────────────────────────────────────────────
@@ -373,6 +374,17 @@ function BloqueMaqueta({ fotos, label }) {
    ───────────────────────────────────────────── */
 export default function CRAV() {
   const containerRef = useScrollReveal()
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '')
+      const elemento = document.getElementById(id)
+      if (elemento) {
+        setTimeout(() => elemento.scrollIntoView({ behavior: 'smooth' }), 100)
+      }
+    }
+  }, [location])
 
   return (
     <div ref={containerRef}>
@@ -415,7 +427,7 @@ export default function CRAV() {
         {/* ─────────────────────────────────────
             01 · RECINTO CRAV
             ───────────────────────────────────── */}
-        <section className="pt-24 md:pt-36">
+        <section id="recinto-crav" className="pt-24 md:pt-36">
 
           <SectionHeader
             numero="/ 01"
@@ -479,7 +491,7 @@ export default function CRAV() {
         {/* ─────────────────────────────────────
             02 · POBLACIÓN DESIDERIO GUZMÁN
             ───────────────────────────────────── */}
-        <section>
+        <section id="desiderio-guzman">
 
           <SectionHeader
             numero="/ 02"
@@ -536,7 +548,7 @@ export default function CRAV() {
         {/* ─────────────────────────────────────
             03 · VILLA LOS RADALES
             ───────────────────────────────────── */}
-        <section className="pb-24 md:pb-36">
+        <section id="los-radales" className="pb-24 md:pb-36">
 
           <SectionHeader
             numero="/ 03"
