@@ -314,9 +314,9 @@ function SectionHeader({ subtitulo, titulo }) {
         </h2>
         <Link
           to="/mapa"
-          className="mb-1 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-penco-blue-600)] text-[var(--color-penco-blue-600)] text-xs font-semibold hover:bg-[var(--color-penco-blue-600)] hover:text-white transition-all duration-300 shrink-0"
+          className="mb-1 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-penco-blue-600)] text-[var(--color-penco-blue-600)] text-sm font-semibold hover:bg-[var(--color-penco-blue-600)] hover:text-white transition-all duration-300 shrink-0"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
           </svg>
           Ver en mapa
