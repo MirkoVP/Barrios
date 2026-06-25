@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 /* ─────────────────────────────────────────────
@@ -308,9 +308,20 @@ function SectionHeader({ subtitulo, titulo }) {
       <div className="eyebrow text-[var(--color-penco-blue-600)] mb-4">
         <span>{subtitulo}</span>
       </div>
-      <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] text-[var(--color-ink)]">
-        {titulo}
-      </h2>
+      <div className="flex items-end gap-4 flex-wrap">
+        <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] text-[var(--color-ink)]">
+          {titulo}
+        </h2>
+        <Link
+          to="/mapa"
+          className="mb-1 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-penco-blue-600)] text-[var(--color-penco-blue-600)] text-xs font-semibold hover:bg-[var(--color-penco-blue-600)] hover:text-white transition-all duration-300 shrink-0"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Ver en mapa
+        </Link>
+      </div>
     </div>
   )
 }
