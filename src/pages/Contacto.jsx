@@ -23,7 +23,9 @@ export default function Contacto() {
 
         {/* TARJETA — CORREO */}
         <a
-          href={`mailto:${correo}`}
+          href={`https://mail.google.com/mail/?view=cm&fs=1&to=${correo}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group bg-white rounded-2xl p-10 border border-[var(--color-penco-blue-200)]/40 hover:border-[var(--color-penco-gold)]/60 transition-all duration-500 shadow-sm hover:shadow-[0_12px_24px_-8px_rgba(21,24,42,0.18)] flex flex-col gap-8"
         >
           <div className="w-14 h-14 rounded-full bg-[var(--color-penco-blue)]/10 flex items-center justify-center group-hover:bg-[var(--color-penco-gold)]/15 transition-colors duration-500">
