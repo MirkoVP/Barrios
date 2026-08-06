@@ -281,7 +281,7 @@ export default function Home() {
               ),
             },
             {
-              to: '/maquetas',
+              to: '/maquetas-3d',
               
               label: 'Maquetas',
               desc: 'Reconstrucciones tridimensionales navegables de los recintos, basadas en planos históricos y observación directa.',
